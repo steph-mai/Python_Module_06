@@ -6,17 +6,15 @@
 #  By: stmaire <stmaire@student.42.fr>           +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/03/02 10:13:50 by stmaire         #+#    #+#               #
-#  Updated: 2026/03/02 11:15:28 by stmaire         ###   ########.fr        #
+#  Updated: 2026/03/02 13:33:52 by stmaire         ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
-import alchemy
-import alchemy.elements
-
-if __name__ == "__main__":
+def ft_sacred_scroll() -> None:
     print("\n=== Sacred Scroll Mastery ===\n")
 
     print("Testing direct module access:")
+    import alchemy
 
     print(f"alchemy.elements.create_fire(): {alchemy.elements.create_fire()}")
     print(f"alchemy.elements.create_water(): "
@@ -27,6 +25,8 @@ if __name__ == "__main__":
           f"{alchemy.elements.create_air()}")
 
     print("\nTesting package-level access (controlled by __init__.py):")
+    import alchemy.elements
+
     print(f"alchemy.create_fire(): {alchemy.create_fire()}")
     print(f"alchemy.create_water(): {alchemy.create_water()}")
 
@@ -42,3 +42,7 @@ if __name__ == "__main__":
     print("\nPackage metadata")
     print(f"Version: {alchemy.__version__}")
     print(f"Author: {alchemy.__author__}")
+
+
+if __name__ == "__main__":
+    ft_sacred_scroll()
