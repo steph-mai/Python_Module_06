@@ -6,7 +6,7 @@
 #  By: stmaire <stmaire@student.42.fr>           +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/03/02 12:44:06 by stmaire         #+#    #+#               #
-#  Updated: 2026/03/02 13:33:21 by stmaire         ###   ########.fr        #
+#  Updated: 2026/03/02 15:53:43 by stmaire         ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -34,9 +34,11 @@ def ft_import_transmutation() -> None:
         print(f"create_fire(): {create_fire()}")
         print(f"strength_potion(): {strength_potion()}")
 
-        print("\nAll import transmutation methods mastered!")
     except ModuleNotFoundError as e:
         print(f"Error : Module '{e.name}' not found")
+    except Exception as e:
+        print(f"\n[!] Unexpected error: {e}")
+    print("\nAll import transmutation methods mastered!")
 
 
 if __name__ == "__main__":

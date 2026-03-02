@@ -6,42 +6,49 @@
 #  By: stmaire <stmaire@student.42.fr>           +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/03/02 10:13:50 by stmaire         #+#    #+#               #
-#  Updated: 2026/03/02 13:33:52 by stmaire         ###   ########.fr        #
+#  Updated: 2026/03/02 15:53:24 by stmaire         ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
 def ft_sacred_scroll() -> None:
     print("\n=== Sacred Scroll Mastery ===\n")
 
-    print("Testing direct module access:")
-    import alchemy
-
-    print(f"alchemy.elements.create_fire(): {alchemy.elements.create_fire()}")
-    print(f"alchemy.elements.create_water(): "
-          f"{alchemy.elements.create_water()}")
-    print(f"alchemy.elements.create_earth(): "
-          f"{alchemy.elements.create_earth()}")
-    print(f"alchemy.elements.create_air(): "
-          f"{alchemy.elements.create_air()}")
-
-    print("\nTesting package-level access (controlled by __init__.py):")
-    import alchemy.elements
-
-    print(f"alchemy.create_fire(): {alchemy.create_fire()}")
-    print(f"alchemy.create_water(): {alchemy.create_water()}")
-
     try:
-        print(f"alchemy.create_earth(): {alchemy.create_earth()}")
-    except AttributeError:
-        print("alchemy.create_earth(): AttributeError - not exposed")
-    try:
-        print(f"alchemy.create_air(): {alchemy.create_air()}")
-    except AttributeError:
-        print("alchemy.create_air():AttributeError - not exposed")
+        print("Testing direct module access:")
+        import alchemy
 
-    print("\nPackage metadata")
-    print(f"Version: {alchemy.__version__}")
-    print(f"Author: {alchemy.__author__}")
+        print(f"alchemy.elements.create_fire(): "
+              f"{alchemy.elements.create_fire()}")
+        print(f"alchemy.elements.create_water(): "
+              f"{alchemy.elements.create_water()}")
+        print(f"alchemy.elements.create_earth(): "
+              f"{alchemy.elements.create_earth()}")
+        print(f"alchemy.elements.create_air(): "
+              f"{alchemy.elements.create_air()}")
+
+        print("\nTesting package-level access (controlled by __init__.py):")
+        import alchemy.elements
+
+        print(f"alchemy.create_fire(): {alchemy.create_fire()}")
+        print(f"alchemy.create_water(): {alchemy.create_water()}")
+
+        try:
+            print(f"alchemy.create_earth(): {alchemy.create_earth()}")
+        except AttributeError:
+            print("alchemy.create_earth(): AttributeError - not exposed")
+        try:
+            print(f"alchemy.create_air(): {alchemy.create_air()}")
+        except AttributeError:
+            print("alchemy.create_air():AttributeError - not exposed")
+
+        print("\nPackage metadata")
+        print(f"Version: {alchemy.__version__}")
+        print(f"Author: {alchemy.__author__}")
+
+    except ModuleNotFoundError as e:
+        print(f"Error : Module '{e.name}' not found")
+    except Exception as e:
+        print(f"\n[!] Unexpected error: {e}")
 
 
 if __name__ == "__main__":
